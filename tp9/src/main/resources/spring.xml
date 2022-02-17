@@ -1,0 +1,49 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+        "https://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+    <bean id="ctrl1" class="presentation.FactureController">
+        <property name="fservice" ref="s1"/>
+    </bean>
+
+    <bean id="s1" class="service.FactureServiceImpl">
+        <property name="fdao" ref="d1"/>
+    </bean>
+
+    <bean id="d1" class="dao.FactureDaoImpl">
+    </bean>
+
+    <bean id="ctrl2" class="presentation.ProduitController">
+        <constructor-arg  ref="s2"/>
+    </bean>
+
+    <bean id="s2" class="service.ProduitServiceImpl">
+        <constructor-arg  ref="d2"/>
+    </bean>
+
+    <bean id="d2" class="dao.ProduitDaoImpl">
+    </bean>
+
+    <bean id="ctrlC" class="presentation.ClientController">
+        <constructor-arg  ref="sc"/>
+
+    </bean>
+
+    <bean id="sc" class="service.ClientServiceImpl">
+        <constructor-arg  ref="dc"/>
+    </bean>
+
+    <bean id="dc" class="dao.ClientDaoImpl">
+    </bean>
+
+    <bean id="adrs" class="presentation.AdresseController">
+        <constructor-arg  ref="adrsserv"/>
+    </bean>
+
+    <bean id="adrsserv" class="service.AdresseServiceImpl">
+        <constructor-arg  ref="daoadrs"/>
+    </bean>
+
+    <bean id="daoadrs" class="dao.AdressDaoImpl">
+    </bean>
+</beans>
+
